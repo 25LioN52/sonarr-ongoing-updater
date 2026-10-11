@@ -1,4 +1,4 @@
-FROM python:3.12-alpine
+FROM python:3.14-alpine
 
 WORKDIR /app
 COPY ongoing_updater.py /app/ongoing_updater.py
