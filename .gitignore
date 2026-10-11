@@ -1,0 +1,27 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.coverage
+htmlcov/
+
+# Runtime state and secrets
+data/
+state.json
+sonarr-ongoing-updater-data/
+.env
+.env.*
+!.env.example
+docker-compose.override.yml
+
+# Editors
+.vs/
+.vscode/
+.idea/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini

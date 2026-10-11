@@ -1,0 +1,28 @@
+# Add this service to the same compose file as sonarr and qbittorrent,
+# so the containers can reach each other by service name.
+services:
+  sonarr-ongoing-updater:
+    # Image built by GitHub Actions. Replace your-github-user (lowercase).
+    image: ghcr.io/your-github-user/sonarr-ongoing-updater:latest
+    # Or build straight from the repository on the server, without a registry:
+    # build: https://github.com/your-github-user/sonarr-ongoing-updater.git#main
+    container_name: sonarr-ongoing-updater
+    restart: unless-stopped
+    environment:
+      TZ: Europe/Madrid
+      SONARR_URL: http://sonarr:8989
+      SONARR_API_KEY: "your-sonarr-api-key"     # Sonarr → Settings → General → API Key
+      QBIT_URL: http://qbittorrent:8080         # behind gluetun: http://gluetun:8080
+      QBIT_USERNAME: admin
+      QBIT_PASSWORD: "your-webui-password"
+      # Same bot and chat as in Seerr → Settings → Notifications → Telegram
+      TELEGRAM_BOT_TOKEN: "123456:ABC..."
+      TELEGRAM_CHAT_ID: "-1001234567890"
+      SEERR_URL: https://seerr.example.com      # for the "Open in Seerr" button; optional
+      INTERVAL_MINUTES: "120"
+      # 0 = never switch to a different release (different dub) mid-season
+      OTHER_RELEASE_AFTER_HOURS: "0"
+      # Only logs what it would do. Set to "false" once the logs look right.
+      DRY_RUN: "true"
+    volumes:
+      - ./sonarr-ongoing-updater-data:/data

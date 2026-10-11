@@ -1,0 +1,45 @@
+name: Bug report
+description: The service grabbed the wrong release, skipped a new episode, or failed
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Remove API keys, passwords, bot tokens and private tracker links from everything below before posting.
+  - type: textarea
+    id: what-happened
+    attributes:
+      label: What happened
+      description: What you expected the service to do, and what it did instead.
+    validations:
+      required: true
+  - type: textarea
+    id: log
+    attributes:
+      label: Dry-run log
+      description: Output of `docker compose run --rm sonarr-ongoing-updater --once --dry-run --verbose`.
+      render: text
+    validations:
+      required: true
+  - type: textarea
+    id: release
+    attributes:
+      label: Release
+      description: Tracker and exact title of the release it should, or shouldn't, have grabbed.
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: From the first log line.
+      placeholder: sonarr-ongoing-updater 1.2.0
+    validations:
+      required: true
+  - type: input
+    id: sonarr-version
+    attributes:
+      label: Sonarr version
+      placeholder: "4.0.15"
+  - type: input
+    id: qbit-version
+    attributes:
+      label: qBittorrent version
+      placeholder: "5.1.2"

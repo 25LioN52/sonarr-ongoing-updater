@@ -1,0 +1,18 @@
+name: Feature request
+description: Suggest a new setting, tracker title format or behaviour
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem
+      description: What you're trying to do, and why the service can't do it now.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: How you'd like it to work. For a new title format, paste a few example release titles.
+    validations:
+      required: true

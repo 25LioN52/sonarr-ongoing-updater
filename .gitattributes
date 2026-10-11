@@ -1,0 +1,3 @@
+# Store and check out text files with LF on every OS, so files edited on
+# Windows go into the Linux image unchanged.
+* text=auto eol=lf
